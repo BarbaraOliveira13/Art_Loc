@@ -15,19 +15,26 @@ class OffersController < ApplicationController
   end
 
   def create
-    offer = Offer.new(params_offer)
-    offer.save
-    redirect_to offers_path
+    @offer = Offer.new(params_offer)
+    @offer.user_id = current_user.id
+    if @offer.save!
+      redirect_to root_path, notice: "Offer was successfully created."
+    else
+      render :new
+    end
   end
 
   def update
-    @offer.update(params_offer)
-    redirect_to offers_path(@offer)
+    if @offer.update(params_offer)
+    redirect_to @offer, notice: "'Offer was successfully updated"
+   else
+    render :edit
+    end
   end
 
   def destroy
     @offer.destroy
-    redirect_to offers_path
+    redirect_to offers_path, notice: 'Offer was successfully destroyed.'
   end
 
 private
