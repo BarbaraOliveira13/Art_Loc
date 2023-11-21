@@ -1,0 +1,21 @@
+<%= simple_form_for([@offer, @reservation], local: true) do |form| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+        <% @reservation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.input :date_begin, as: :date %>
+
+  <%= form.input :date_end, as: :date %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
