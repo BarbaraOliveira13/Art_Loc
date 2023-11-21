@@ -10,24 +10,42 @@ class OffersController < ApplicationController
   end
 
   def new
+    @offer = Offer.new
+  end
+  
+  def create
+    @offer = Offer.new(params_offer)
+    @offer.user_id = current_user.id
+    if @offer.save!
+      redirect_to root_path, notice: "Offer was successfully created."
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @offer.update(params_offer)
+    redirect_to @offer, notice: "'Offer was successfully updated"
+   else
+    render :edit
+    end
   end
 
   def destroy
+    @offer.destroy
+    redirect_to offers_path, notice: 'Offer was successfully destroyed.'
   end
 
-  private
+private
 
-  def set_offer
-    @offer = Offer.find(params[:id])
-  end
+def params_offer
+  params.require(:offer).permit(:title, :price, :content, :category)
+end
 
-  def offer_params
-    params.require(:offer).permit(:title, :price, :content, :phone_number, :category)
-  end
+def set_offer
+  @offer = Offer.find(params[:id])
+end
 end

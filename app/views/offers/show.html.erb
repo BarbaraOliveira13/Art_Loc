@@ -1,2 +1,16 @@
-<h1>Offers#show</h1>
-<p>Find me in app/views/offers/show.html.erb</p>
+<%= render 'header' %>
+
+<div class="container">
+  <div >
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="btn-style">
+          <p><%= link_to "Ofer",  new_offer_path(@offer), class: 'btn-book' %></p>
+          <p><%= link_to "Edit", edit_offer_path(@offer), class: 'btn-edit' %></p>
+          <p><%= link_to "Delete", edit_offer_path(@offer), class: 'btn-delete' %></p>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac interdum tellus. Ut sed nibh ornare, ultrices lorem nec, tempus quam. Aliquam vitae nulla sit amet erat lacinia eleifend ut vitae lectus.</p>
+      </div>
+    </div>
+
+    <hr>
