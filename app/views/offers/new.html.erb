@@ -1,2 +1,14 @@
-<h1>Offers#new</h1>
-<p>Find me in app/views/offers/new.html.erb</p>
+<%= render 'header' %>
+
+<div class="container">
+  <div class="">
+    <div class="row new-form">
+      <div class="col-lg-6 left-bg-list">
+      </div>
+      <div class="col-lg-6 right-bg" >
+        <%= render 'form', offer: @offer %>
+      </div>
+    </div>
+  </div>
+<%= link_to 'Back', offers_path %>
+</div>
