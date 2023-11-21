@@ -12,7 +12,7 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
   end
-  
+
   def create
     @offer = Offer.new(params_offer)
     @offer.user_id = current_user.id
@@ -42,7 +42,7 @@ class OffersController < ApplicationController
 private
 
 def params_offer
-  params.require(:offer).permit(:title, :price, :content, :category)
+  params.require(:offer).permit(:title, :price, :content, :category, :photo)
 end
 
 def set_offer
