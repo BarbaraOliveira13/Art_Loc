@@ -4,14 +4,15 @@
   <%= link_to "add a offer", new_offer_path %>
 
 
-
   <ul id="offers">
     <% @offers.each_slice(3) do |group| %>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <% group.each do |offer| %>
           <div class="col-4">
             <div class="card h-100">
-              <img src="..." class="card-img-top" alt="...">
+            <% if offer.photo.key %>
+              <%= cl_image_tag offer.photo.key, width: 200, height: 200, crop: :fill %>
+            <% end %>
               <div class="card-body">
                 <div class="boxcard">
                   <h5 class="card-title"><%= link_to offer.title, offer_path(offer) %></h5>
@@ -19,7 +20,7 @@
                 </div>
                   <p class="card-text"><%=offer.content%></p>
                   <i class="fa-solid fa-calendar-days fa-xl" style="color: #648dd3;"></i>
-                    <a href="#" class="btn btn-primary">Louer</a>
+                    <a href="#" class="btn btn-primary">Louer <%= link_to reservation_path(reservation) %></a>
               </div>
             </div>
           </div>
