@@ -1,9 +1,13 @@
-<h2>Sign up</h2>
+<div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2017/06/04/17/42/getty-centre-2371720_1280.jpg') center center no-repeat; background-size: cover;">
+<div class="signup-container p-4">
+<div class="white-frame">
+<h2 class="mb-5">Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
+<div class="col-11">
   <div class="form-inputs">
+
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -23,3 +27,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
