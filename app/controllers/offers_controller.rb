@@ -12,11 +12,11 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
   end
-  
+
   def create
     @offer = Offer.new(params_offer)
     @offer.user_id = current_user.id
-    if @offer.save!
+    if @offer.save
       redirect_to root_path, notice: "Offer was successfully created."
     else
       render :new
@@ -36,13 +36,13 @@ class OffersController < ApplicationController
 
   def destroy
     @offer.destroy
-    redirect_to offers_path, notice: 'Offer was successfully destroyed.'
+    redirect_to root_path, notice: 'Offer was successfully destroyed.'
   end
 
 private
 
 def params_offer
-  params.require(:offer).permit(:title, :price, :content, :category)
+  params.require(:offer).permit(:title, :price, :content, :category, :photo)
 end
 
 def set_offer

@@ -1,0 +1,32 @@
+.form-inputs {
+  input[type="email"],
+  input[type="password"],
+  h2 {
+    width: 20%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .input-group {
+    text-align: left;
+    margin-bottom: 10px;
+
+    .email-input,
+    .password-input {
+      label {
+        display: inline-block;
+        width: 30%;
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+.white-frame {
+  border: 2px solid #fff;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
