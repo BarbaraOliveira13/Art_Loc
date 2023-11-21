@@ -1,1 +1,22 @@
-Prout
+<div class="container mt-5">
+  <h1>Artworks</h1>
+
+  <%= link_to "add a offer", new_offer_path %>
+
+  <ul id="offers">
+    <% @offers.each do |offer| %>
+
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to offer.title, offer_path(offer) %></h5>
+          <p class="card-text"><%=offer.content%></p>
+          <p class="card-text"><%=offer.price%> €</p>
+          <a href="#" class="btn btn-primary">Louer</a>
+        </div>
+      </div>
+
+    <% end %>
+
+  </ul>
+</div>

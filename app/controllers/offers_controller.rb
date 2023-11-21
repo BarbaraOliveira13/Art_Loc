@@ -1,5 +1,7 @@
 class OffersController < ApplicationController
+  # skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_offer, only: %i[show edit update destroy]
+
   def index
     @offers = Offer.all
   end
@@ -10,10 +12,7 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
   end
-
-  def edit
-  end
-
+  
   def create
     @offer = Offer.new(params_offer)
     @offer.user_id = current_user.id
@@ -22,6 +21,9 @@ class OffersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update
@@ -46,5 +48,4 @@ end
 def set_offer
   @offer = Offer.find(params[:id])
 end
-
 end
