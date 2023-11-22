@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -10,62 +11,55 @@
 
 
 puts "start"
-
+Offer.destroy_all
+User.destroy_all
 puts "create first user"
 user = User.create(email: "contact@artloc.com", password: "123456")
 puts "user created"
 
-
-require "open-uri"
-
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Leonardo_da_vinci%2C_la_gioconda%2C_1503-06_circa.jpg/220px-Leonardo_da_vinci%2C_la_gioconda%2C_1503-06_circa.jpg")
-article = Offer.new(user_id: user, title: "La Joconde", content: "La Joconde (en italien: La Gioconda ), ou Portrait de Mona Lisa, est un tableau de l'artiste Léonard de Vinci, réalisé entre 1503 et 1506 ", price: 10000000, category:"peinture")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
-
-file = URI.open("https://d1ee3oaj5b5ueh.cloudfront.net/thumbs/787xAUTO_original_article_2023_08_f204e49d-84eb-45e2-bbe8-164c4a6d684e.jpg")
-article = Article.new(title: "Salvator Mundi", content: "", price: 4500000, category:"peinture")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
-
-file = URI.open("https://www.francetvinfo.fr/pictures/g7mlvm_QT74yVwzUizya-e3Lve0/1200x1200/2019/04/12/banksy_2.jpg")
-article = Article.new(title: "Girl with balloon", content: "A great console", price: 200000, category:"peinture")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
-
-file = URI.open("https://upload.wikimedia.org/wikipedia/commons/c/cc/Madonna_Lily_Egg.jpg")
-article = Article.new(title: "Oeuf de Fabergé", content: "A great console", price: 200000, category:"peinture")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
-
-file = URI.open("https://arthisto.fr/wp-content/uploads/2016/11/buste-de-nefertiti.jpg")
-article = Article.new(title: "Buste de la reine Nefertiti", content: "A great console", price: 50000, category:"sculpture")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
-
-file = URI.open("https://cdn-s-www.leprogres.fr/images/E3199B5E-D4D3-4E7C-8C02-5A2303E97A91/NW_raw/jeff-koons-est-connu-entre-autres-pour-ses-sculptures-semblant-faites-avec-des-ballons-comme-ici-ce-balloon-dog-bleu-ici-d-une-taille-imposante-photo-sipa-rex-shutterstock-1676795360.jpg")
-article = Article.new(title: "Jeff Koons", content: "A great console", price: 5000, category:"peinture")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
-
-file = URI.open("https://balcondart.com/wp-content/uploads/2019/12/191205-art-basel-banana.jpg")
-article = Article.new(title: "Banane", content: "A great console", price: 1500, category:"objet")
-article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-article.save
+file = [
+  URI.open("https://www.francetvinfo.fr/pictures/NalhS6o28H8Oe8SBakhDOYH1iUc/fit-in/720x/2019/04/12/000_par8284437.jpg"),
+  URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Bouquet_of_lilies_clock_01_by_shakko.jpg/800px-Bouquet_of_lilies_clock_01_by_shakko.jpg"),
+  URI.open("https://s.rfi.fr/media/display/0c9a7688-109f-11ea-bb1c-005056bf7c53/w:980/p:16x9/2017-10-24t094416z_1575050207_rc1c97ef1c40_rtrmadp_3_britain-art.jpg"),
+  URI.open(""),
+  URI.open(""),
+  URI.open(""),
+  URI.open(""),
+  URI.open(""),
+]
 
 
 offers = [
 
+  {title: "La Joconde", content: "", price: 12.50, category: "peinture" },
+  {title: "Oeuf de Fabergé", content: "Bois de sureau et plume d'aigle", price: 39.90, category: "Sorcier" },
+  {title: "Salvator Mundi", content: "Devenez 100% transparent!", price: 99.99, category: "Sorcier" },
+  {title: "toto", content: "7 Boundary St, London E2 7JE", price: 12.50, category: "french" },
   {title: "Dishoom", content: "7 Boundary St, London E2 7JE", price: 12.50, category: "french" },
   {title: "Baguette magique", content: "Bois de sureau et plume d'aigle", price: 39.90, category: "Sorcier" },
-  {title: "Cape d'invisibilité", content: "Devenez 100% transparent!", price: 99.99, category: "Sorcier" }
+  {title: "Cape d'invisibilité", content: "Devenez 100% transparent!", price: 99.99, category: "Sorcier" },
+  {title: "toto", content: "7 Boundary St, London E2 7JE", price: 12.50, category: "french" },
+
 
 ]
+
+results = []
 count = 1
 offers.each do |offer|
   offer[:user] = user
-  Offer.create!(offer)
+  offer_test = Offer.new(offer)
+  offer_test.save!
+  results << offer_test
   puts count
+  count += 1
+end
+
+puts "pictures"
+
+count = 0
+results.each do |result|
+  puts "start picture"
+  result.photo.attach(io: file[count], filename: "nes.png", content_type: "image/png")
   count += 1
 end
 
