@@ -1,16 +1,19 @@
 <%= render 'header' %>
 
 <div class="container">
-  <div >
+  <div>
     <div class="row">
       <div class="col-lg-6">
         <div class="btn-style">
-          <p><%= link_to "Offer",  new_offer_path(@offer), class: 'btn-book' %></p>
+          <p><%= link_to "Offer", new_offer_path(@offer), class: 'btn-book' %></p>
           <p><%= link_to "Edit", edit_offer_path(@offer), class: 'btn-edit' %></p>
-          <p><%= link_to "Delete", edit_offer_path(@offer), class: 'btn-delete' %></p>
+           <%= link_to 'Delete', offer_path(@offer),
+            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac interdum tellus. Ut sed nibh ornare, ultrices lorem nec, tempus quam. Aliquam vitae nulla sit amet erat lacinia eleifend ut vitae lectus.</p>
       </div>
     </div>
 
     <hr>
+  </div>
+</div>

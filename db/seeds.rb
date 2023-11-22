@@ -19,7 +19,8 @@ offers = [
 
   {title: "Dishoom", content: "7 Boundary St, London E2 7JE", price: 12.50, category: "french" },
   {title: "Baguette magique", content: "Bois de sureau et plume d'aigle", price: 39.90, category: "Sorcier" },
-  {title: "Cape d'invisibilité", content: "Devenez 100% transparent!", price: 99.99, category: "Sorcier" }
+  {title: "Cape d'invisibilité", content: "Devenez 100% transparent!", price: 99.99, category: "Sorcier" },
+  {title: "toto", content: "7 Boundary St, London E2 7JE", price: 12.50, category: "french" },
 
 ]
 count = 1
