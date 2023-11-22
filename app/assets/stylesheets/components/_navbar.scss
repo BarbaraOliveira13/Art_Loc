@@ -10,3 +10,31 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.navbar-lewagon .icons i{
+  margin-right:20px;
+  margin-top:20px;
+}
+.nav-link{
+  padding:0px;
+}
+.navbar-lewagon .icons i:hover{
+  color:rgb(173, 173, 173);
+  cursor: pointer;
+}
+.navbar-lewagon .icons{
+  display: flex;
+  flex-direction: row;
+}
+.new-offer{
+  background-color: #ffffff;
+  height:30px;
+  padding:5px;
+  padding-bottom:10px;
+  border-radius: 20px 20px 20px 20px;
+  text-decoration:none;
+  color:black;
+  margin-right:10px;
+}
+.new-offer:hover{
+  background-color: #d2d2d2;
+}

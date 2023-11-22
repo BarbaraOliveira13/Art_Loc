@@ -1,7 +1,5 @@
 .form-inputs {
-  input[type="email"],
-  input[type="password"],
-  h2 {
+  .login-container{
     width: 20%;
     margin: 0 auto;
     position: relative;
@@ -10,18 +8,13 @@
   .input-group {
     text-align: left;
     margin-bottom: 10px;
-
-    .email-input,
     .password-input {
-      label {
         display: inline-block;
         width: 30%;
         text-align: left;
       }
     }
-  }
 }
-
 
 .white-frame {
   border: 2px solid #fff;
