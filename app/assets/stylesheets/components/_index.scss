@@ -3,3 +3,48 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+body{
+  background-color:rgb(244, 244, 244);
+  background-image: url("https://cdn.pixabay.com/photo/2022/06/30/23/43/ink-7294678_1280.jpg");
+  background-size: cover;
+}
+
+.container-cards{
+  margin: 20px;
+  margin-top:50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  width:80vw;
+  margin-left:auto;
+  margin-right: auto;
+}
+.card{
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20prgb(255, 255, 255);
+  -webkit-box-shadow: 5px 5px 15px 1px #000000;
+  box-shadow: 5px 5px 15px 1px #000000;
+  margin-right:20px;
+}
+.test{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.test p{
+  text-align: end;
+  vertical-align: end;
+}
+.test a {
+  border-style : none;
+  text-decoration:none;
+  color:black;
+  font-size:18px;
+}
+.test a:hover{
+  cursor: pointer;
+  color:blue;
+}
