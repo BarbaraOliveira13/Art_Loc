@@ -10,6 +10,7 @@
         <% group.each do |offer| %>
           <div class="col-4">
             <div class="card h-100">
+
             <% if offer.photo.key %>
               <%= cl_image_tag offer.photo.key, width: 200, height: 200, crop: :fill %>
             <% end %>
@@ -20,7 +21,7 @@
                 </div>
                   <p class="card-text"><%=offer.content%></p>
                   <i class="fa-solid fa-calendar-days fa-xl" style="color: #648dd3;"></i>
-                    <a href="#" class="btn btn-primary">Louer <%= link_to reservation_path(reservation) %></a>
+                    <%# <a href="#" class="btn btn-primary">Louer <%= link_to offer_reservation_path(offer.id) %>
               </div>
             </div>
           </div>
