@@ -1,18 +1,24 @@
-<h2>Forgot your password?</h2>
+<div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2014/01/16/08/06/museum-246222_1280.jpg') center center no-repeat; background-size: cover;">
+  <div class="signup-container p-4">
+    <div class="white-frame" style="padding: 20px; max-width: 600px; width: 100%;">
+      <h2 class="mb-5">Forgot your password?</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <div class="col-8 mx-auto">
+          <%= f.error_notification %>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+        <div class="form-actions mt-5 text-center">
+          <%= f.button :submit, "Send me reset password instructions", class: "btn btn-primary btn-rounded" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+  <div class="text-center">
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
