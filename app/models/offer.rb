@@ -3,5 +3,4 @@ class Offer < ApplicationRecord
   has_one_attached :photo
   has_many :reservations
   validates :title, :content, :price, :category, presence: true
-
 end
