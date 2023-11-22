@@ -1,25 +1,18 @@
 <div class="container">
-  <div>
+  <div >
     <div class="row">
 
         <div class="btn-style">
-
-          <p><%= link_to "Offer", new_offer_path(@offer), class: 'btn-book' %></p>
-          <p><%= link_to "Edit", edit_offer_path(@offer), class: 'btn-edit' %></p>
-           <%= link_to 'Delete', offer_path(@offer),
-            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
-
           <hr>
             <%= link_to offers_path do %>
               <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
             <% end %>
+
+
         </div>
       </div>
     </div>
 
-    <hr>
-  </div>
-</div>
     <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -34,10 +27,13 @@
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         <i class="fa-solid fa-calendar-days fa-xl" style="color: #648dd3;"></i>
                 <a href="#" type="button" class="btn btn-outline-secondary">Louer </a>
-                <p><%= link_to "Delete", edit_offer_path(@offer), class: 'btn-delete' %></p>
+                <p><%= link_to 'Delete', offer_path(@offer),
+            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
       </div>
     </div>
   </div>
 </div>
-</div>
 
+
+
+</div>
