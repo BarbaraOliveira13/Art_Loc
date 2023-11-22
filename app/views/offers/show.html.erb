@@ -27,7 +27,8 @@
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         <i class="fa-solid fa-calendar-days fa-xl" style="color: #648dd3;"></i>
                 <a href="#" type="button" class="btn btn-outline-secondary">Louer </a>
-                <p><%= link_to "Delete", edit_offer_path(@offer), class: 'btn-delete' %></p>
+                <p><%= link_to 'Delete', offer_path(@offer),
+            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
       </div>
     </div>
   </div>
