@@ -19,7 +19,7 @@ puts "user created"
 require "open-uri"
 
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Leonardo_da_vinci%2C_la_gioconda%2C_1503-06_circa.jpg/220px-Leonardo_da_vinci%2C_la_gioconda%2C_1503-06_circa.jpg")
-article = Article.new(title: "La Joconde", content: "La Joconde (en italien: La Gioconda ), ou Portrait de Mona Lisa, est un tableau de l'artiste Léonard de Vinci, réalisé entre 1503 et 1506 ", price: 10000000, category:"peinture")
+article = Offer.new(user_id: user, title: "La Joconde", content: "La Joconde (en italien: La Gioconda ), ou Portrait de Mona Lisa, est un tableau de l'artiste Léonard de Vinci, réalisé entre 1503 et 1506 ", price: 10000000, category:"peinture")
 article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 article.save
 
