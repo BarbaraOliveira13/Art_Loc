@@ -4,6 +4,10 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR category ILIKE :query"
+      @offers = @offers.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
