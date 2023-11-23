@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :offers do
-    resources :reservations, only: %i[new create]
+    resources :reservations, only: %i[new create show]
   end
   resources :reservations, only: %i[index show destroy]
   get 'dashboard', to: 'reservations#dashboard'

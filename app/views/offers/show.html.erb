@@ -1,16 +1,41 @@
-<%= render 'header' %>
-
 <div class="container">
   <div >
     <div class="row">
-      <div class="col-lg-6">
+
         <div class="btn-style">
-          <p><%= link_to "Offer",  new_offer_path(@offer), class: 'btn-book' %></p>
-          <p><%= link_to "Edit", edit_offer_path(@offer), class: 'btn-edit' %></p>
-          <p><%= link_to "Delete", edit_offer_path(@offer), class: 'btn-delete' %></p>
+          <hr>
+            <%= link_to offers_path do %>
+              <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+            <% end %>
+
+
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac interdum tellus. Ut sed nibh ornare, ultrices lorem nec, tempus quam. Aliquam vitae nulla sit amet erat lacinia eleifend ut vitae lectus.</p>
       </div>
     </div>
 
-    <hr>
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <% if @offer.photo.key %>
+              <%= cl_image_tag @offer.photo.key, width: 200, height: 200, crop: :fill %>
+            <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+      <p><%= link_to "Edit", edit_offer_path(@offer), class: 'btn-edit' %></p>
+        <h2 class="card-title"><%= @offer.title %></h2>
+        <h5 class="card-title"><%=@offer.price%>€/day</h5>
+        <p class="card-text"><%=@offer.content%></p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <i class="fa-solid fa-calendar-days fa-xl" style="color: #648dd3;"></i>
+                <a href="#" type="button" class="btn btn-outline-secondary">Louer </a>
+                <p><%= link_to 'Delete', offer_path(@offer),
+            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
