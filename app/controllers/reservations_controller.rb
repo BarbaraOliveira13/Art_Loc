@@ -14,12 +14,14 @@ class ReservationsController < ApplicationController
   # end
 
   def create
-    @reservation = Reservation.new(review_params)
+    @reservation = Reservation.new
     # @reservation = current_user.reservations.build(reservation_params)
+    @reservation.date_begin = params[:reservation][:date_begin].split(' to ').first
+    @reservation.date_end = params[:reservation][:date_begin].split(' to ').last
     @reservation.offer = @offer
-
+    @reservation.user = current_user
     if @reservation.save
-      redirect_to root_path, notice: 'Reservation was successfully created.'
+      redirect_to dashboard_path, notice: 'Reservation was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
