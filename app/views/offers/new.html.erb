@@ -1,18 +1,21 @@
 <%= render 'header' %>
-<div class="d-flex align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2023/11/13/11/50/living-room-8385308_1280.jpg') center center no-repeat; background-size: cover;">
+
+<div data-controller="photo-preview" class="d-flex align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2023/11/13/11/50/living-room-8385308_1280.jpg') center center no-repeat; background-size: cover;">
   <div class="signup-container p-4">
     <div class="white-frame" style="padding: 20px; max-width: 700px; width: 150%;">
       <div class="container">
-          <div class="row new-form">
-            <div class="col-lg-6 left-bg-list">
-            </div>
-            <div class="col-lg-6 right-bg" >
-              <%= render 'form', offer: @offer %>
-            </div>
+        <div class="row new-form">
+          <div class="col-lg-6 left-bg-list">
+            <%= image_tag "", class:"photo-preview", alt: "", data: { photo_preview_target: "img" }  %>
+          </div>
+          <div class="col-lg-6 right-bg" >
+            <%= render 'form', offer: @offer %>
           </div>
         </div>
       </div>
-<%= link_to image_tag('https://static.thenounproject.com/png/531654-200.png', alt: 'Back', style: 'width: 50px; height: 50px; bottom: 10px; left: 10px;'), offers_path %>
     </div>
   </div>
+
+<%= link_to raw('<i class="fa-solid fa-arrow-left-long" style="color: #9e9e9e;"></i>'), offers_path, style: 'font-size: 48px; position: fixed; bottom: 10px; left: 10px;' %>
+
 </div>
