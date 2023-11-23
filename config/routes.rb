@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[new create show]
   end
   resources :reservations, only: %i[index show destroy]
-  get 'dashboard', to: 'reservations#dashboard'
+  devise_scope :user do
+  get 'dashboard', to: 'dashboards#dashboard', as:'user_dashboard'
+  end
 end

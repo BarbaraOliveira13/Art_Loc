@@ -1,17 +1,14 @@
 class ReservationsController < ApplicationController
   before_action :set_offer, only: [:new, :create]
 
-  def dashboard
-    current_user.reservations
-  end
-
   def new
     @reservation = Reservation.new
   end
 
-  # def show
-  #   @reservation = Reservation.find(params[:id])
-  # end
+  def show
+    @reservation = Reservation.find(params[:id])
+    current_user.reservations
+  end
 
   def create
     @reservation = Reservation.new(review_params)
