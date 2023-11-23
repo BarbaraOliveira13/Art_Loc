@@ -1,12 +1,20 @@
 class OffersController < ApplicationController
-
   before_action :set_offer, only: %i[show edit update destroy]
 
   def index
     @offers = Offer.all
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR category ILIKE :query"
+      @offers = @offers.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+  end
+
+  def user_offers
+    curent_user.offers
   end
 
   def show
+    @reservation = Reservation.new
   end
 
   def new

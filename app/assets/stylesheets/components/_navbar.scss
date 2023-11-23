@@ -5,6 +5,9 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  margin-right: 30px;
+  padding-right: 50px;
+
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -27,14 +30,17 @@
 }
 .new-offer{
   background-color: #ffffff;
-  height:30px;
-  padding:5px;
-  padding-bottom:10px;
   border-radius: 20px 20px 20px 20px;
   text-decoration:none;
   color:black;
-  margin-right:10px;
+  margin-right:40px;
+  padding: 10px;
 }
 .new-offer:hover{
   background-color: #d2d2d2;
+}
+
+.topnav  {
+  width: 400px;
+  padding: 10px;
 }

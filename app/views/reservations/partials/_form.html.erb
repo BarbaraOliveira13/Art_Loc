@@ -1,0 +1,12 @@
+
+<%= simple_form_for([offer, reservation], local: true) do |form| %>
+
+  <%= form.input :date_begin,
+        as: :string,
+            label: raw("<i class='fa-solid fa-calendar-days fa-xl' style='color: #648dd3;'></i>"),
+            input_html: { data: { controller: "datepicker" }, class:"d-none" } %>
+
+  <div class="actions">
+    <%= form.submit texte="Louer"%>
+  </div>
+<% end %>
