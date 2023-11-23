@@ -12,13 +12,19 @@
                       input_html: { autocomplete: "email" } %>
         </div>
 
-        <div class="form-actions mt-5 text-center">
-          <%= f.button :submit, "Send me reset password instructions", class: "btn btn-primary btn-rounded" %>
+        <div class="form-actions mt-1 text-center">
+          <%= f.button :submit, "Send me reset password instructions", style: "font-weight: bold; font-size: 20px; margin-bottom: 10px;" %>
+        </div>
+
+        <div class="text-center" style="margin-bottom: 20px;">
+          <style>
+            a {
+              text-decoration: none;
+            }
+          </style>
+          <%= render "devise/shared/links" %>
         </div>
       <% end %>
     </div>
-  </div>
-  <div class="text-center">
-    <%= render "devise/shared/links" %>
   </div>
 </div>
