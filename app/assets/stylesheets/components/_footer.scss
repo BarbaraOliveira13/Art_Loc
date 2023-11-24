@@ -1,0 +1,30 @@
+.footer-container{
+  background-color: #222222;
+  height:100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left:30px;
+  padding-right: 30px;
+  padding-top:40px;
+  min-height:100%;
+}
+.footer-container p{
+  color:white;
+  margin-right: 10px;
+}
+.footer-container .langs{
+  display: flex;
+  flex-direction: row;
+}
+.footer-container .langs p{
+  margin-left:10px;
+}
+.footer-container .other{
+  display: flex;
+  flex-direction: row;
+}
+.footer-container a{
+  color:white;
+  margin-right: 10px;
+}

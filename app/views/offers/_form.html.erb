@@ -1,8 +1,8 @@
 <%= simple_form_for offer, html: {data: {turbo: false}} do |f| %>
-  <%= f.input :title %>
-  <%= f.input :category, collection: ["Peintures", "Sculptures", "Livres", "Photographies"] %>
-  <%= f.input :content %>
-  <%= f.input :photo, as: :file, input_html: { data: { action: "change->photo-preview#displayPreview", photo_preview_target: "photoInput"} } %>
-  <%= f.input :price %>
-  <%= f.submit class: 'btn btn-primary' %>
+<%= f.input :title %>
+<%= f.input :category, collection: ["Peintures", "Sculptures", "Livres", "Photographies"] %>
+<%= f.input :content %>
+<%= f.input :photo, as: :file, input_html: { data: { action: "change->photo-preview#displayPreview", photo_preview_target: "photoInput"} } %>
+<%= f.input :price %>
+<%= f.submit class: 'btn btn-primary' %>
 <% end %>

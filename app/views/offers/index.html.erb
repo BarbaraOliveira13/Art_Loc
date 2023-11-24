@@ -1,34 +1,41 @@
+<% unless params[:query] %>
 <div class="banner">
   <div class="title-container d-flex justify-content-start align-items-center w-75 h-100">
-  <div class="ms-5">
-    <div class="text-center">
-      <h3 class="animate-charcter">Art & Loc</h3>
-    </div>
-    <div class="toto text-center">
+    <div class="ms-5">
+      <div class="text-center">
+        <h3 class="animate-charcter">Art & Loc</h3>
+      </div>
+      <div class="toto text-center">
         <h2>
-        <span>Art</span>
-        <span>éphémère,</span>
-        <span> impact</span>
-        <span>durable.</span>
-        <span> Art</span>
-        <span> & </span>
-        <span>Loc</span>
-        <span> - </span>
-        <span>Votre</span>
-        <span> galerie,</span>
-        <span> votre</span>
-        <span> histoire.</span>
+          <span>Art</span>
+          <span>éphémère,</span>
+          <span> impact</span>
+          <span>durable.</span>
+          <span> Art</span>
+          <span> & </span>
+          <span>Loc</span>
+          <span> - </span>
+          <span>Votre</span>
+          <span> galerie,</span>
+          <span> votre</span>
+          <span> histoire.</span>
         </h2>
+</div>
+
     </div>
   </div>
 </div>
 </div>
-<div class="offers-container">
+<div class="offers-container" >
+<div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
 <h1>Les dernières offres</h1>
-<div class="test-toto">
+
+<div class="test-toto" >
 <% @offers.each_slice(4) do |group| %>
 <% group.each do |offer| %>
-  <div class="card">
+  <div class="card" >
     <div class="card-img">
     <% if offer.photo.key %>
                 <%= cl_image_tag offer.photo.key, width: 300, height: 220, crop: :fill %>
@@ -37,20 +44,17 @@
         <div class="overlay-content">
           <h5 class="card-title"><%= link_to "View details", offer_path(offer) %></h5>
         </div>
-        <ul id="offers">
-    <% @offers.each_slice(3) do |group| %>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        </div>
-        <% end %>
+
       </div>
       </div>
 
-    <div class="card-content">
+      <div class="card-content">
         <h2><%= link_to offer.title, offer_path(offer) %></h2>
         <p><%= offer.price%> €/day</p>
+      </div>
     </div>
+    <% end %>
+    <% end %>
   </div>
-  <% end %>
-  <% end %>
 </div>
 </div>
