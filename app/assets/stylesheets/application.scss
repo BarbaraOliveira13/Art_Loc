@@ -12,3 +12,7 @@
 @import "pages/index";
 @import "pages/boxcard";
 @import "components/footer";
+
+.container-yield {
+  min-height: calc(100vh - 100px);
+}

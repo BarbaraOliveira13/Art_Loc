@@ -2,13 +2,13 @@
 
 <h2>Offers You Posted</h2>
 <% @user_offers.each do |offer| %>
-  <%= link_to offer.title, offer_path(offer) %><br>
+<%= link_to offer.title, offer_path(offer) %><br>
 <% end %>
 <h2>Your Reservations</h2>
 <% @user_reservations.each do |reservation| %>
-  <%= link_to "Reservation for #{reservation.offer.title}" %><br>
+<%= link_to "Reservation for #{reservation.offer.title}" %><br>
 <% end %>
 <h2>Reservations for You</h2>
 <% @reservations_for_user.each do |reservation| %>
-  <%#= link_to "Reservation by #{reservation.user} for #{reservation.offer.title}" %><br>
+<%#= link_to "Reservation by #{reservation.user} for #{reservation.offer.title}" %><br>
 <% end %>
