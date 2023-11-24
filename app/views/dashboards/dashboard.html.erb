@@ -1,84 +1,74 @@
-<div class="offers-container" style="height: 100vh">
+<div class="offers-container">
   <h2 class=title_dashboard>Ma galerie</h2>
   <h1 class=texte_dashboard>Retrouvez ici toutes vos Oeuvres d'arts et réservations</h1>
   <h3 class=texte_dashboard>Oeuvres d'Art ajoutées</h3>
   <div class="test-toto">
-    <% @user_offers.each_slice(4) do |group| %>
-      <% group.each do |offer| %>
-        <div class="card">
-          <div class="card-img">
-            <%= offer.title%><br>
-            <% if offer.photo.key %>
-              <%= cl_image_tag offer.photo.key, width: 300, height: 220, crop: :fill %>
+    <% @user_offers.each do |offer| %>
+      <div class="card">
+        <div class="card-img">
+          <%= offer.title%><br>
+          <% if offer.photo.key %>
+            <%= cl_image_tag offer.photo.key, width: 300, height: 220, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="card-content">
+          <div><%= offer.title%></div>
+          <h5><%= offer.title%></h5>
+          <div><%= offer.price%> €/jour</div>
+          <div>
+            <%= link_to(edit_offer_path(offer)) do %>
+              <i class="fa-solid fa-pen-to-square fa-sm" style="color: #b98731;"></i>
             <% end %>
           </div>
-          <div class="card-content">
-            <%= offer.title%><br>
-            <h5><%= offer.title%><br></h5>
-              <p><%= offer.price%> €/jour</p>
-
-            <p>
-              <%= link_to(edit_offer_path(offer)) do %>
-                <i class="fa-solid fa-pen-to-square fa-sm" style="color: #b98731;"></i>
-              <% end %>
-           </p>
-
-            <div class="btn-delete" style="width: 95%;">
-              <%= link_to offer_path(id: offer.id), data: {turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cette offre?' }, class:'btn btn-block' do %>
-                <i class="fa-solid fa-trash fa-sm" style="color: #b98731;"></i>
-              <% end %>
-            </div>
-
+          <div class="btn-delete" style="width: 95%;">
+            <%= link_to offer_path(id: offer.id), data: {turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cette offre?' }, class:'btn btn-block' do %>
+              <i class="fa-solid fa-trash fa-sm" style="color: #b98731;"></i>
+            <% end %>
           </div>
         </div>
-        <% end %>
-      <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class=texte_dashboard>Mes réservations d'oeuvres d'art</h3>
+  <div class="test-toto">
+    <% @user_reservations.each do |reservation| %>
+      <div class="card">
+        <div class="card-img">
+          <div>Du <%= reservation.date_begin%> au <%=reservation.date_end%></div>
+          <% if reservation.offer.photo.key %>
+            <%= cl_image_tag reservation.offer.photo.key, width: 300, height: 220, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="card-content">
+          <%= reservation.offer.title%><br>
+          <h5><%= reservation.offer.title%><br></h5>
+            <p><%= reservation.offer.price%> €/jour</p>
+            <p class="card-text"><%=reservation.offer.content%></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 
-<h3 class=texte_dashboard>Mes réservations d'oeuvres d'art</h3>
-  <div class="test-toto">
-    <% @user_reservations.each_slice(4) do |group| %>
-      <% group.each do |reservation| %>
+<h3 class="texte_dashboard pb-5">Mes oeuvres d'art qu'on m'a réservées</h3>
+  <% if @reservations_for_user.length > 1 %>
+    <div class="test-toto">
+      <% @reservations_for_user.each do |reservation| %>
         <div class="card">
           <div class="card-img">
-            <%= reservation.date_begin%><%=reservation.date_begin%>
+            <%= reservation.date_begin%> - <%=reservation.date_begin%>
             <% if reservation.offer.photo.key %>
               <%= cl_image_tag reservation.offer.photo.key, width: 300, height: 220, crop: :fill %>
             <% end %>
           </div>
           <div class="card-content">
-            <%= reservation.offer.title%><br>
-            <h5><%= reservation.offer.title%><br></h5>
-              <p><%= reservation.offer.price%> €/jour</p>
-              <p class="card-text"><%=reservation.offer.content%></p>
+            <div><%= reservation.offer.title%></div>
+            <h5><%= reservation.offer.title%></h5>
+            <div><%= reservation.offer.price%> €/jour</div>
           </div>
         </div>
-        <% end %>
       <% end %>
-  </div>
-
-
-<h3 class=texte_dashboard>Mes oeuvres d'art qu'on m'a réservées</h3>
-<% if @reservations_for_user.length > 1 %>
-  <div class="test-toto">
-    <% @reservations_for_user.each_slice(4) do |group| %>
-      <% group.each do |reservation| %>
-        <div class="card">
-          <div class="card-img">
-            <%= reservation.date_begin%><%=reservation.date_begin%>
-            <% if reservation.offer.photo.key %>
-              <%= cl_image_tag reservation.offer.photo.key, width: 300, height: 220, crop: :fill %>
-            <% end %>
-          </div>
-          <div class="card-content">
-              <%= reservation.offer.title%><br>
-              <h5><%= reservation.offer.title%><br></h5>
-              <p><%= reservation.offer.price%> €/jour</p>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
-<% end %>
