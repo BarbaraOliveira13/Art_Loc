@@ -1,8 +1,7 @@
 <div class="offers-container">
-  <h1 class=texte_dashboard>Ma galerie</h1>
-  <h5 class=texte_dashboard>Retrouvez ici toutes vos Oeuvres d'arts et réservations</h5>
-
-  <h3 class=texte_dashboard>Oeuvres d'Art ajoutées</h3>
+  <h1 class="title_dashboard">Ma galerie</h1>
+  <h5 class="texte_dashboard">Retrouvez ici toutes vos Oeuvres d'arts et réservations</h5>
+  <h3 class="texte_dashboard">Oeuvres d'Art ajoutées</h3>
   <div class="test-toto">
     <% @user_offers.each_slice(4) do |group| %>
       <% group.each do |offer| %>
@@ -63,7 +62,8 @@
   </div>
 
 
-<h3 class=texte_dashboard>Mes oeuvres d'art réservées</h3>
+<h3 class=texte_dashboard>Mes oeuvres d'art qu'on m'a réservées</h3>
+<% if @reservations_for_user.length > 1 %>
   <div class="test-toto">
     <% @reservations_for_user.each_slice(4) do |group| %>
       <% group.each do |reservation| %>
@@ -84,3 +84,4 @@
       <% end %>
   </div>
 </div>
+<% end %>

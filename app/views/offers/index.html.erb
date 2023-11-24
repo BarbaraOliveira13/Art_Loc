@@ -2,7 +2,7 @@
   <div class="title-container d-flex justify-content-start align-items-center w-75 h-100">
     <div class="ms-5">
       <div class="text-center">
-        <h3 class="animate-charcter">Art & Loc</h3>
+        <h3 class="animate-charcter" data-aos="fade-down">Art & Loc</h3>
       </div>
       <div class="toto text-center">
         <h2>
@@ -26,12 +26,14 @@
 </div>
 </div>
 <div class="offers-container" >
-<div data-aos="fade-right"
+<div>
+<h1 data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">Les dernières offres</h1>
+
+<div class="test-toto" data-aos="fade-right"
      data-aos-offset="300"
      data-aos-easing="ease-in-sine">
-<h1>Les dernières offres</h1>
-
-<div class="test-toto" >
 <% @offers.each_slice(4) do |group| %>
 <% group.each do |offer| %>
   <div class="card" >
