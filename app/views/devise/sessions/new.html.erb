@@ -1,7 +1,7 @@
 <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2017/08/26/20/05/tate-2684212_1280.jpg') center center no-repeat; background-size: cover;">
   <div class="white-frame">
     <div class="login-container p-4">
-      <h2 class="mb-5">Log in</h2>
+      <h2 class="mb-5">Se connecter</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="col-11">
@@ -10,12 +10,13 @@
                       autofocus: true %>
           <%= f.input :password,
                       required: false,
+                      label: "Mot de passe",
                       input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
         </div>
 
         <div class="form-actions mt-3 text-center">
-          <%= f.button :submit, "Log in", style: "font-weight: bold; font-size: 20px;" %>
+          <%= f.button :submit, "Connexion", style: "font-weight: bold; font-size: 20px;" %>
         </div>
       <% end %>
 

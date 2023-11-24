@@ -31,8 +31,7 @@ class OffersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @offer.update(params_offer)
