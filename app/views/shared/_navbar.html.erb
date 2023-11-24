@@ -21,9 +21,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="align-items-center navbar-nav me-auto">
         <div class="icons">
-          <%= link_to "Create new offer", new_offer_path, class: "new-offer" %>
-          <%= link_to "My Offers", offers_path , class: "new-offer"%>
-          <%= link_to "My Reservations", offers_path, class: "new-offer" %>
+          <%= link_to "Ajouter une Oeuvre d'art", new_offer_path, class: "new-offer" %>
+          <%= link_to "Mes Offres", dashboard_path , class: "new-offer"%>
+          <%= link_to "Mes Reservations", dashboard_path, class: "new-offer" %>
         </div>
         <% if user_signed_in? %>
         <li class="nav-item dropdown">
