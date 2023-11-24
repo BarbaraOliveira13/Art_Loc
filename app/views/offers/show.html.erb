@@ -13,10 +13,10 @@
         <div class="col-md-6">
           <div class="card-body">
             <h2 class="card-title"><strong><%= @offer.title %></strong></h2>
-            <h5 class="card-title"><%= @offer.price %>€/day</h5>
+            <h5 class="card-title"><%= @offer.price %>€/jour</h5>
             <div class="card-content" style="margin-right: 20px;">
               <p class="card-text"><%= @offer.content %></p>
-              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-body-secondary">Il y a 3 minutes</small></p>
               <%= render 'reservations/partials/form', offer: @offer, reservation: @reservation %>
             </div>
           </div>
@@ -24,7 +24,7 @@
         <div class="col-md-1 d-flex align-items-center">
           <% if @offer.photo.key %>
             <%= cl_image_tag @offer.photo.key, width: 200, height: 200, crop: :fill %>
-          <% end %>
+          <% end %>e
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@
           <div class="card-content">
             <%= offer.title%><br>
             <h5><%= offer.title%><br></h5>
-              <p><%= offer.price%> €/day</p>
+              <p><%= offer.price%> €/jour</p>
 
             <p>
               <%= link_to(edit_offer_path(offer)) do %>
@@ -54,7 +54,7 @@
           <div class="card-content">
             <%= reservation.offer.title%><br>
             <h5><%= reservation.offer.title%><br></h5>
-              <p><%= reservation.offer.price%> €/day</p>
+              <p><%= reservation.offer.price%> €/jour</p>
               <p class="card-text"><%=reservation.offer.content%></p>
           </div>
         </div>
@@ -77,7 +77,7 @@
           <div class="card-content">
               <%= reservation.offer.title%><br>
               <h5><%= reservation.offer.title%><br></h5>
-              <p><%= reservation.offer.price%> €/day</p>
+              <p><%= reservation.offer.price%> €/jour</p>
           </div>
         </div>
         <% end %>
