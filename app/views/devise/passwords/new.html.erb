@@ -1,7 +1,7 @@
 <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2014/01/16/08/06/museum-246222_1280.jpg') center center no-repeat; background-size: cover;">
   <div class="signup-container p-4">
     <div class="white-frame" style="padding: 20px; max-width: 600px; width: 100%;">
-      <h2 class="mb-5">Forgot your password?</h2>
+      <h2 class="mb-5">Mot de passe oublié</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <div class="col-8 mx-auto">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="form-actions mt-1 text-center">
-          <%= f.button :submit, "Send me reset password instructions", style: "font-weight: bold; font-size: 20px; margin-bottom: 10px;" %>
+          <%= f.button :submit, "Envoyer", style: "font-weight: bold; font-size: 20px; margin-bottom: 10px;" %>
         </div>
 
         <div class="text-center" style="margin-bottom: 20px;">
