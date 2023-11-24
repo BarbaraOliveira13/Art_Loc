@@ -1,7 +1,7 @@
-<div class="offers-container">
-  <h1 class="title_dashboard">Ma galerie</h1>
-  <h5 class="texte_dashboard">Retrouvez ici toutes vos Oeuvres d'arts et réservations</h5>
-  <h3 class="texte_dashboard">Oeuvres d'Art ajoutées</h3>
+<div class="offers-container" style="height: 100vh">
+  <h2 class=title_dashboard>Ma galerie</h2>
+  <h1 class=texte_dashboard>Retrouvez ici toutes vos Oeuvres d'arts et réservations</h1>
+  <h3 class=texte_dashboard>Oeuvres d'Art ajoutées</h3>
   <div class="test-toto">
     <% @user_offers.each_slice(4) do |group| %>
       <% group.each do |offer| %>
@@ -24,10 +24,7 @@
            </p>
 
             <div class="btn-delete" style="width: 95%;">
-              <%= link_to offer_path(offer),
-                method: :delete,
-                data: { turbo_confirm: 'Are you sure?' },
-                class: 'btn btn-block' do %>
+              <%= link_to offer_path(id: offer.id), data: {turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr de vouloir supprimer cette offre?' }, class:'btn btn-block' do %>
                 <i class="fa-solid fa-trash fa-sm" style="color: #b98731;"></i>
               <% end %>
             </div>
