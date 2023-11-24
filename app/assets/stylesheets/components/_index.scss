@@ -60,8 +60,10 @@
 .banner {
   background-image: url("https://cb1d3a3a37.clvaw-cdnwnd.com/8547d762a0a61c8614c79d387881c18b/200000132-7ee227ee25/header-lion-olia.jpeg?ph=cb1d3a3a37");
   background-size:cover;
-  height:950px;
-  margin:0px;
+  height:685px;
+  background-position: right;
+  background-size:110%;
+  background-repeat: no-repeat;
 }
 
 .banner p {
@@ -100,7 +102,7 @@
   -webkit-text-fill-color: transparent;
   animation: textclip 8s linear infinite;
   display: inline-block;
-  font-size: 190px;
+  font-size: 145px;
 }
 
 @keyframes textclip {
@@ -136,7 +138,7 @@
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
     color: white;
-    font-size: 28px;
+    font-size: 24px;
   }
 
   @keyframes scale {

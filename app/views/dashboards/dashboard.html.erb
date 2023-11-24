@@ -1,7 +1,6 @@
 <div class="offers-container" style="height: 100vh">
   <h2 class=title_dashboard>Ma galerie</h2>
   <h1 class=texte_dashboard>Retrouvez ici toutes vos Oeuvres d'arts et réservations</h1>
-
   <h3 class=texte_dashboard>Oeuvres d'Art ajoutées</h3>
   <div class="test-toto">
     <% @user_offers.each_slice(4) do |group| %>
@@ -16,7 +15,7 @@
           <div class="card-content">
             <%= offer.title%><br>
             <h5><%= offer.title%><br></h5>
-              <p><%= offer.price%> €/day</p>
+              <p><%= offer.price%> €/jour</p>
 
             <p>
               <%= link_to(edit_offer_path(offer)) do %>
@@ -51,7 +50,7 @@
           <div class="card-content">
             <%= reservation.offer.title%><br>
             <h5><%= reservation.offer.title%><br></h5>
-              <p><%= reservation.offer.price%> €/day</p>
+              <p><%= reservation.offer.price%> €/jour</p>
               <p class="card-text"><%=reservation.offer.content%></p>
           </div>
         </div>
@@ -60,7 +59,8 @@
   </div>
 
 
-<h3 class=texte_dashboard>Mes oeuvres d'art réservées</h3>
+<h3 class=texte_dashboard>Mes oeuvres d'art qu'on m'a réservées</h3>
+<% if @reservations_for_user.length > 1 %>
   <div class="test-toto">
     <% @reservations_for_user.each_slice(4) do |group| %>
       <% group.each do |reservation| %>
@@ -74,10 +74,11 @@
           <div class="card-content">
               <%= reservation.offer.title%><br>
               <h5><%= reservation.offer.title%><br></h5>
-              <p><%= reservation.offer.price%> €/day</p>
+              <p><%= reservation.offer.price%> €/jour</p>
           </div>
         </div>
         <% end %>
       <% end %>
   </div>
 </div>
+<% end %>
