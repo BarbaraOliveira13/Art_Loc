@@ -1,36 +1,34 @@
+<div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh; background: url('https://cdn.pixabay.com/photo/2017/08/07/11/42/museum-2602957_1280.jpg') center center no-repeat; background-size: cover;">
+
 <div class="container">
   <div class="row">
     <div class="btn-style">
-      <hr>
       <%= link_to offers_path do %>
-      <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+       <%= link_to raw('<i class="fa-solid fa-arrow-left-long" style="color: #9e9e9e;"></i>'), offers_path, style: 'font-size: 48px; position: fixed; bottom: 10px; left: 10px;' %>
+
       <% end %>
     </div>
   </div>
 
-  <div class="card mb-3" style="max-width: 540px;">
+  <div class="card mb-3 mx-auto mt-5" style="max-width: 540px;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <% if @offer.photo.key %>
-        <%= cl_image_tag @offer.photo.key, width: 200, height: 200, crop: :fill %>
-        <% end %>
-      </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card-body">
-          <p><%= link_to "Edit", edit_offer_path(@offer), class: 'btn-edit' %></p>
-          <h2 class="card-title"><%= @offer.title %></h2>
-          <h5 class="card-title"><%=@offer.price%>€/day</h5>
-          <p class="card-text"><%=@offer.content%></p>
-
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-
-          <%= render 'reservations/partials/form', offer: @offer, reservation: @reservation %>
-          <p><%= link_to 'Delete', offer_path(@offer),
-            data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
-
+          <h2 class="card-title"><strong><%= @offer.title %></strong></h2>
+          <h5 class="card-title"><%= @offer.price %>€/day</h5>
+          <div class="card-content" style="margin-right: 20px;">
+            <p class="card-text"><%= @offer.content %></p>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            <%= render 'reservations/partials/form', offer: @offer, reservation: @reservation %>
+          </div>
         </div>
       </div>
+      <div class="col-md-1 d-flex align-items-center">
+        <% if @offer.photo.key %>
+          <%= cl_image_tag @offer.photo.key, width: 200, height: 200, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
     </div>
   </div>
-
 </div>

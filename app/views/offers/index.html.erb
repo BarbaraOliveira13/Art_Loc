@@ -1,23 +1,24 @@
+<% unless params[:query] %>
 <div class="banner">
   <div class="title-container d-flex justify-content-start align-items-center w-75 h-100">
-  <div class="ms-5">
-    <div class="text-center">
-      <h3 class="animate-charcter">Art & Loc</h3>
-    </div>
-    <div class="toto text-center">
+    <div class="ms-5">
+      <div class="text-center">
+        <h3 class="animate-charcter">Art & Loc</h3>
+      </div>
+      <div class="toto text-center">
         <h2>
-        <span>Art</span>
-        <span>éphémère,</span>
-        <span> impact</span>
-        <span>durable.</span>
-        <span> Art</span>
-        <span> & </span>
-        <span>Loc</span>
-        <span> - </span>
-        <span>Votre</span>
-        <span> galerie,</span>
-        <span> votre</span>
-        <span> histoire.</span>
+          <span>Art</span>
+          <span>éphémère,</span>
+          <span> impact</span>
+          <span>durable.</span>
+          <span> Art</span>
+          <span> & </span>
+          <span>Loc</span>
+          <span> - </span>
+          <span>Votre</span>
+          <span> galerie,</span>
+          <span> votre</span>
+          <span> histoire.</span>
         </h2>
 </div>
 
@@ -47,13 +48,13 @@
       </div>
       </div>
 
-    <div class="card-content">
+      <div class="card-content">
         <h2><%= link_to offer.title, offer_path(offer) %></h2>
         <p><%= offer.price%> €/day</p>
+      </div>
     </div>
+    <% end %>
+    <% end %>
   </div>
-  <% end %>
-  <% end %>
-</div>
 </div>
 </div>
