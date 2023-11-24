@@ -20,31 +20,32 @@
           <span> votre</span>
           <span> histoire.</span>
         </h2>
-      </div>
+</div>
+
     </div>
   </div>
 </div>
-<% end %>
-<div class="offers-container">
-  <h1>Les dernières offres</h1>
-  <div class="test-toto">
-    <% @offers.each_slice(4) do |group| %>
-    <% group.each do |offer| %>
-    <div class="card">
-      <div class="card-img">
-        <% if offer.photo.key %>
-        <%= cl_image_tag offer.photo.key, width: 300, height: 220, crop: :fill %>
-        <% end %>
-        <div class="overlay">
-          <div class="overlay-content">
-            <h5 class="card-title"><%= link_to "View details", offer_path(offer) %></h5>
-          </div>
-          <ul id="offers">
-            <% @offers.each_slice(3) do |group| %>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-            </div>
-            <% end %>
+</div>
+<div class="offers-container" >
+<div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+<h1>Les dernières offres</h1>
+
+<div class="test-toto" >
+<% @offers.each_slice(4) do |group| %>
+<% group.each do |offer| %>
+  <div class="card" >
+    <div class="card-img">
+    <% if offer.photo.key %>
+                <%= cl_image_tag offer.photo.key, width: 300, height: 220, crop: :fill %>
+              <% end %>
+      <div class="overlay">
+        <div class="overlay-content">
+          <h5 class="card-title"><%= link_to "View details", offer_path(offer) %></h5>
         </div>
+
+      </div>
       </div>
 
       <div class="card-content">
@@ -55,4 +56,5 @@
     <% end %>
     <% end %>
   </div>
+</div>
 </div>
